@@ -11,11 +11,9 @@ inputs:
   key:
     description: 'The Appwrite API token'
   code:
-    description: 'The directory containing your function'
+    description: 'The directory containing your functions'
     default: './'
-  single:
-    description: 'Are you deploying a single function?'
-    default: 'true'
+
 runs:
   using: 'composite'
   steps:
@@ -30,10 +28,10 @@ runs:
           --projectId='${{ inputs.project }}' \
           --key='${{ inputs.key }}' \
         appwrite -v
-        appwrite client --selfSigned true  --endpoint='${{ inputs.endpoint }}'
+        appwrite client --selfSigned true --endpoint='${{ inputs.endpoint }}'
     - name: chmod script
       shell: bash
       run: chmod +x ${{ github.action_path }}/deploy-function.sh
     - name: Deploy function
       shell: bash
-      run: sudo bash ${{ github.action_path }}/deploy-function.sh ${{ inputs.single }}
+      run: sudo bash ${{ github.action_path }}/deploy-function.sh ${{ inputs.endpoint }}
