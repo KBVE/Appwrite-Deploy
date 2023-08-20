@@ -29,8 +29,8 @@ runs:
           --endpoint='${{ inputs.endpoint }}' \
           --projectId='${{ inputs.project }}' \
           --key='${{ inputs.key }}' \
-          --selfSigned true \
-          --debug
+        appwrite -v
+        appwrite client --selfSigned true
     - name: chmod script
       shell: bash
       run: chmod +x ${{ github.action_path }}/deploy-function.sh
