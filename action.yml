@@ -27,7 +27,7 @@ runs:
       run: |
         appwrite client \
           --endpoint='${{ inputs.endpoint }}' \
-          --project='${{ inputs.project }}' \
+          --projectId='${{ inputs.project }}' \
           --key='${{ inputs.key }}'
         appwrite version
     - name: chmod script
