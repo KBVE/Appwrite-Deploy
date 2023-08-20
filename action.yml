@@ -25,7 +25,7 @@ runs:
     - name: Setup Appwrite CLI
       shell: bash
       run: |
-        appwrite init \
+        appwrite client \
           --endpoint='${{ inputs.endpoint }}' \
           --project='${{ inputs.project }}' \
           --key='${{ inputs.key }}'
