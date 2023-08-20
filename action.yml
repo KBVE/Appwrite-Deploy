@@ -13,9 +13,6 @@ inputs:
   code:
     description: 'The directory containing your function'
     default: './'
-  locale:
-    description: 'Locale'
-    default: 'en-US'
   single:
     description: 'Are you deploying a single function?'
     default: 'true'
@@ -29,7 +26,6 @@ runs:
       shell: bash
       run: |
         appwrite init \
-          --locale='${{ inputs.locale }}' \
           --endpoint='${{ inputs.endpoint }}' \
           --project='${{ inputs.project }}' \
           --key='${{ inputs.key }}'
